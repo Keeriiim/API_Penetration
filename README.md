@@ -109,28 +109,38 @@ sudo docker-compose up -d
 
 
 # Reconnaissance
+## Discovering APIs: Passive and Active Reconnaissance
+Start by using the web application as an end-user.
+Look for advertised APIs on the landing page.
+Identify API naming schemes and patterns.
+Utilize HTTP headers and response messages.
+Use third-party sources for additional API listings.
 
-Discovering APIs: Passive and Active Reconnaissance
-Introduction
-APIs are meant to be consumed, and their discoverability varies.
-Public APIs are easily found and used, often with public documentation.
-Partner APIs are for partners, with limited public documentation.
-Private APIs are for internal use, often with scarce or no public documentation.
+- Public API is designed for use by anyone, typically with open access and often accompanied by comprehensive documentation.
+  Endpoint: example.com/api/v1/search  
+  Description: This endpoint allows users to search for various topics, such as "Teletubbies".  
+  Access: Open to the public, no authentication required.  
+  Documentation: Found at example.com/docs, providing detailed instructions on how to use the API.  
+
+- Partner API is meant for use by specific partners or entities, often requiring authentication and limited documentation for the public.
+  Endpoint: partners.example.com/api/v1/search  
+  Description: The API returns enhanced search results, possibly with additional metadata or customization options for PartnerCo.  
+  Access: Restricted to authorized partners, requires authentication.  
+  Documentation: Limited documentation available at partners.example.com/docs, accessible only to authorized partners  
+
+- Private API is internal to the organization, meant for use within the company, and often lacks public documentation.
+  Endpoint: internal.example.com/api/v1/search
+  Description: This endpoint provides detailed analytics and raw data about "Teletubbies", used for internal analysis.
+  Access: Restricted to employees within the example.com organization, requires internal authentication.
+  Documentation: Limited or no public documentation available, internal teams rely on knowledge sharing or direct communication.
+
 Web API Indicators
-Public APIs are often discoverable through:
-
-End-user friendly documentation.
 Marketing on web applications.
 Obvious URL naming schemes: /api, /v1, /docs, etc.
 Subdomains: api.target-name.com, developer.target-name.com, etc.
 HTTP headers: Content-Type: application/json, etc.
 Response messages like: {"message": "Missing Authorization token"}.
-Other Indicators:
 
-Look for API indicators in directory names and URL structures.
-Subdomains like api.target-name.com and dev.target-name.com.
-HTTP headers specifying JSON or XML content types.
-Response messages indicating missing authorization tokens.
 Third-Party Sources
 Explore APIs using:
 Github: github.com
@@ -139,16 +149,18 @@ ProgrammableWeb API Directory: programmableweb.com/apis/directory
 APIs Guru: apis.guru
 Public APIs Github Project: github.com/public-apis/public-apis
 RapidAPI Hub: rapidapi.com/search/
-Discovery Process
-Start by using the web application as an end-user.
-Look for advertised APIs on the landing page.
-Identify API naming schemes and patterns.
-Utilize HTTP headers and response messages.
-Use third-party sources for additional API listings.
 
-API Discovery
-Passive Techniques
-Active Techniques
+
+## Passive Techniques
+Google dorking:   
+intitle:"api" site:"coinbase.com"   
+intitle:json site:ebay.com   
+inurl"/api/v1" site:"coinbase.com"   
+![image](https://github.com/Keeriiim/API_Penetration/assets/117115289/bc1257ea-1e52-4283-be55-8dfc5e1e6742)
+
+
+## Active Techniques
+
 Endpoint Analysis
 The Process
 Setting Up Requests
