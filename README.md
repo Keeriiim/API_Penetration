@@ -1,7 +1,7 @@
 # API_Penetration
 
 - [Lab Setup](#lab-setup)
-- 
+- [Reconnaissance](#reconnaissance) 
 
 # Lab Setup
 Download [kali](#https://www.kali.org/get-kali/#kali-virtual-machines) for your VM. Then open your VM handler and press open and find the file you downloaded.
@@ -81,13 +81,71 @@ sudo apt install zaproxy
 ```
 When you open the app, update OpenAPI
 
+## crApi & vApi
+- [crApi](https://github.com/OWASP/crAPI/blob/develop/docs/setup.md)
+```bash
+mkdir lab
+cd lab
+mkdir crapi
+curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+docker-compose pull
+sudo docker-compose -f docker-compose.yml --compatibility up -d
+```
+![image](https://github.com/Keeriiim/API_Penetration/assets/117115289/fe3b1050-a295-4447-b8a4-66218779c0bd)  
+![image](https://github.com/Keeriiim/API_Penetration/assets/117115289/d7201388-38dd-4092-aaf5-5c5708e9bdd4)
+
+
+```bash
+cd lab
+git clone https://github.com/roottusk/vapi.git
+cd vapi
+sudo docker-compose up -d
+```
+![image](https://github.com/Keeriiim/API_Penetration/assets/117115289/b9157608-6b7e-4574-b336-70fb310fb145)
+
+- Go to Postman, create new workspace, import collection & env .json from /vapi/postman
 
 
 
 
+# Reconnaissance
 
-Setting up Your System
-Setting up an API Hacking Lab
+Discovering APIs: Passive and Active Reconnaissance
+Introduction
+APIs are meant to be consumed, and their discoverability varies.
+Public APIs are easily found and used, often with public documentation.
+Partner APIs are for partners, with limited public documentation.
+Private APIs are for internal use, often with scarce or no public documentation.
+Web API Indicators
+Public APIs are often discoverable through:
+
+End-user friendly documentation.
+Marketing on web applications.
+Obvious URL naming schemes: /api, /v1, /docs, etc.
+Subdomains: api.target-name.com, developer.target-name.com, etc.
+HTTP headers: Content-Type: application/json, etc.
+Response messages like: {"message": "Missing Authorization token"}.
+Other Indicators:
+
+Look for API indicators in directory names and URL structures.
+Subdomains like api.target-name.com and dev.target-name.com.
+HTTP headers specifying JSON or XML content types.
+Response messages indicating missing authorization tokens.
+Third-Party Sources
+Explore APIs using:
+Github: github.com
+Postman Explore: postman.com/explore/apis
+ProgrammableWeb API Directory: programmableweb.com/apis/directory
+APIs Guru: apis.guru
+Public APIs Github Project: github.com/public-apis/public-apis
+RapidAPI Hub: rapidapi.com/search/
+Discovery Process
+Start by using the web application as an end-user.
+Look for advertised APIs on the landing page.
+Identify API naming schemes and patterns.
+Utilize HTTP headers and response messages.
+Use third-party sources for additional API listings.
+
 API Discovery
 Passive Techniques
 Active Techniques
