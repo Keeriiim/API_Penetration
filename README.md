@@ -53,6 +53,34 @@ sudo passwd hacker
 
 Log out -> in as hacker
 
+```bash
+sudo git clone https://github.com/ticarpi/jwt_tool
+sudo python3 -m pip install termcolor cprint pycryptodomex requests
+cd jwt_tool
+sudo chmod +x jwt_tool.py
+sudo ln -s /opt/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
+  
+cd /opt
+sudo git clone https://github.com/assetnote/kiterunner.git
+cd kiterunner
+sudo make build
+cd dist
+sudo ln -s /opt/kiterunner/dist/kr /usr/bin/kr
+
+cd /opt
+sudo git clone https://github.com/s0md3v/Arjun.git
+cd Arjun
+sudo python3 setup.py install
+sudo ln -s /opt/Arjun/arjun /usr/bin/arjun
+
+```
+
+## Zap
+```bash
+sudo apt install zaproxy
+```
+When you open the app, update OpenAPI
+
 
 
 
